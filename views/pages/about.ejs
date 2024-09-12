@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include("../partials/head"); %>
+    <title>EJS HAbout</title>
+</head>
+<body classname="container">
+    <header>
+        <!-- include ejs header -->
+        <%- include('../partials/header',{variant: 'compact'}); %>
+    </header>
+
+    <main>
+        <h1>THis page is the about page for the EJS</h1>
+        <p>learning how to use EJS to make stuff like templates and partials to use for later</p>
+    </main>
+    <footer>
+        <% include("../partials/footer"); %>
+    </footer>
+</body>
+</html>

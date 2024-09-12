@@ -1,4 +1,4 @@
-[{"id":1,"first_name":"Alejandro","last_name":"Colbridge","email":"acolbridge0@cnn.com","gender":"Male","DOB":"11/30/2014"},
+let peopleData= [{"id":1,"first_name":"Alejandro","last_name":"Colbridge","email":"acolbridge0@cnn.com","gender":"Male","DOB":"11/30/2014"},
     {"id":2,"first_name":"Lucian","last_name":"Vickers","email":"lvickers1@github.com","gender":"Male","DOB":"11/19/1996"},
     {"id":3,"first_name":"Desmond","last_name":"Edess","email":"dedess2@dyndns.org","gender":"Male","DOB":"8/3/2001"},
     {"id":4,"first_name":"Breanne","last_name":"Broke","email":"bbroke3@google.cn","gender":"Female","DOB":"1/10/2023"},

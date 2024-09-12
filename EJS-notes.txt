@@ -1,0 +1,43 @@
+NEED:
+    -if you are writing a backend application in Node.js and you want to send HTML back to the clients interacting wit it, then you must find a way to mix in or interpolste the processed data into the HTML files you are sending
+    - for simple data interpolatiom and testiing purposes, one way to do this is by concantinating HTML strings with data or using thhe template strings in JS as we have been dping. but if you want to write applications with signifigant HTML code and dyncamic content, you are better off using tools that are designed for thar purpose like templates
+    - EJS embedded javascript templaing, is one of the most popular template engines for Javascirpt. As the name suggests it lets us embed Javascirpt code in a tmeplate language that is then used to generate HTML
+    -in this article, i will talk to youthoguh a detalied guide to templating your Node application with EJS. First well cover the basics of ejs, the we'll move on to advanced fuide using EJS in Node
+
+template engine: a template engine is software designed to combine templates with a dtata model to produce in our case real HTML code
+    -template engines handle the task of interpoling data into HMTL code while providing some features that would have been difficult to replicate by concantinating strings
+
+as mentioned earlier EJS is one of the most popular template engines for javascript. one of the reasons to choose it is that EJS code looks pure HTML
+it retaines the syntax of HTML while allowing data interpolation, unlike pug which uses a different syntax with indentation and spaces, EJS files are saved with the .ejs file extension
+
+Getting started:
+
+    - npm i express ejs express-session
+
+    after installation create app.js and a veiws file inside veiw create pages and partials
+Next step:
+    now inside veiws/pages folder create a file called index.ejs
+
+How it works:
+    -app.set('view engine", 'ejs') is self explaniroty
+    we are setting ejs as the express app view engine by default express will look inside of the views foler when resolving template files, which is why we had to create  a views file
+    -in res.render("pages/index") we are calling the render mehtod on the responce object. this renders the view provided and sends bacl the rendered html string to the clients
+    note that we didnt have to provide the file extension becasue express resolves it automatically it know the view engine we use ans you didnt have to write the path
+
+Goals:
+    -our aim is to combine data with templates. we can do that by passing a second argument to res.render. this second argument must be an object which will be accessable in the EJS template file
+
+EJS syntax:
+    -<starting tag content closing tag>
+    -<%= user.firstName%>
+
+    -EJS jaas different tags for different purposes. this start tag <%= is called the "escape output" tag becasue if the string content has forbidden characters like > or & the characters will be escaped (replaced by html codes) in the output string
+
+COding in EJS
+    - in EJS the tag <% that can contain logic as its content. any javasyntax can be used in this tag
+    -  (-) pulling data from somthing like a partials
+
+what should happen
+    -if you run the app you will see the paragraph in the if statement displayed
+    -change admin:false in the user object and the paragraph wont be displayed
+    -take note of the syntax of the scriptlet <% *if*(user.admin){ %> 
