@@ -1,25 +1,30 @@
-var express = require('express')
-var app = express()
-const PORT = 5000
+const fs = require('fs');
+const express = require('express');
+const app = express();
+const PORT = 5000;
 
-//imported data
-const peopleData = require('./data/people')
+// Read and parse the JSON data
+let eventData = fs.readFileSync('data/events.json');
+let jsonData = JSON.parse(eventData);
 
-app.set('view engine', 'ejs')
+// Serve static files from the "public" directory
+app.use('/public', express.static('public'));
 
-app.get('/', function(req,res){
-    let judgement= 'nerds will inherit the earth'
-    res.render('pages/index',{
-        people:peopleData,
-        tagline: judgement,
-    })
-})
+// Set EJS as the view engine
+app.set('view engine', 'ejs');
 
-// about page
-app.get('/about', function(req, res){
-    res.render('pages/about')
-})
+// Render the events page with the JSON data
+app.get('/', function(req, res) {
+    res.render('pages/events', {
+        events: jsonData.events
+    });
+});
 
-app.listen(PORT, ()=>{
-    console.log(`listening on port ${PORT}`)
-})
+// Render the register page
+app.get('/register', function(req, res) {
+    res.render('pages/register');
+});
+
+app.listen(PORT, () => {
+    console.log(`Listening on port ${PORT}`);
+});
